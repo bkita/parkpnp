@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-
 #bundle install --without production
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'faker', '1.6.6'
 
 group :development, :test do
   gem 'sqlite3'
@@ -29,7 +28,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg',   '0.18.4'
+  gem 'pg', '0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
