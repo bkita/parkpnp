@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106233306) do
+ActiveRecord::Schema.define(version: 20170107234648) do
+
+  create_table "parking_spaces", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "cost_per_hour"
+    t.boolean  "instant_booking"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
