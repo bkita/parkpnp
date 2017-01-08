@@ -16,6 +16,11 @@ RSpec.describe ParkingSpace, type: :model do
       expect(parking_space.valid?).to be false
     end
 
+    it 'returns false for to long parking name space' do
+      parking_space.name = 'a'*257
+      expect(parking_space.valid?).to be false
+    end
+
     it 'returns false for empty cost_per_hour' do
       parking_space.cost_per_hour = ''
       expect(parking_space.valid?).to be false
