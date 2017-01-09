@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :parking_space do
-    name "Francis Street, Dublin 8"
-    cost_per_hour "10"
-    instant_booking false
+    name 'Francis Street, Dublin 8'
+    cost_per_hour 10
+    instant_booking 0
   end
 end
