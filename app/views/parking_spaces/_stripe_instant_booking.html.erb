@@ -1,1 +1,15 @@
-<p>STRIPE code here</p>
+<%= form_tag charges_path do %>
+    <%= hidden_field_tag 'cost_per_hour', @parking_space.cost_per_hour %>
+    <%= hidden_field_tag 'description', @parking_space.name %>
+    <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+    <% end %>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @parking_space.name %>"
+            data-amount="<%= @parking_space.cost_per_hour * 100 %>"
+            data-locale="auto"></script>
+<% end %>

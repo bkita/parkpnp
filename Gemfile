@@ -13,6 +13,7 @@ gem 'devise'
 gem 'faker', '1.6.6'
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
 gem 'draper'
+gem 'stripe'
 
 group :development, :test do
   gem 'sqlite3'

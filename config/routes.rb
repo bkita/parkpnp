@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get  'parking_spaces/:id', to: 'parking_spaces#show', as: 'parking_space'
   get  'static/index',       to: 'static_pages#index'
   devise_for :users
+  resources :charges
 end

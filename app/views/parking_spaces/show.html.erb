@@ -1,3 +1,3 @@
-<h1><%= @parking_space.name %></h1>
-<h3><%= @parking_space.cost_per_hour %></h3>
+<h1>Parking: <%= @parking_space.name %></h1>
+<h3>Cost per hour: <%= number_to_currency @parking_space.cost_per_hour %></h3>
 <div id="booking"><%= @parking_space.booking %></div>
