@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107234648) do
+ActiveRecord::Schema.define(version: 20170109101508) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "parking_space_id"
+    t.string   "parking_space_name"
+    t.decimal  "price_per_hour"
+    t.decimal  "total_price"
+    t.integer  "number_of_hours"
+    t.boolean  "payment_status"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "parking_spaces", force: :cascade do |t|
     t.string   "name"

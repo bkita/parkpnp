@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get  'static/index',       to: 'static_pages#index'
   devise_for :users
   resources :charges
+  resources :bookings
 end

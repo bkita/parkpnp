@@ -1,4 +1,4 @@
-class ParkingSpaceDecorator < Draper::Decorator
+class ParkingSpaceDecorator < Drape::Decorator
   delegate_all
 
   def booking
