@@ -5,6 +5,6 @@ class ParkingSpacesController < ApplicationController
   end
 
   def show
-    @parking_space = ParkingSpace.find(params[:id])
+    @parking_space = ParkingSpace.find(params[:id]).decorate
   end
 end

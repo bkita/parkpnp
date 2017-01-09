@@ -1,11 +1,11 @@
-class ParkingSpaceDecorator
-  attr_reader :component
-
-  def initialize(component)
-    @component = component
-  end
+class ParkingSpaceDecorator < Draper::Decorator
+  delegate_all
 
   def booking
-    component.instant_booking ? 'instant booking' : 'booking'
+    if model.instant_booking
+      h.render 'stripe_instant_booking'
+    else
+      'booking'
+    end
   end
 end
