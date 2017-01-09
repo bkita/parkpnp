@@ -1,4 +1,3 @@
 <h1>Parking: <%= @parking_space.name %></h1>
 <h3>Cost per hour: <%= number_to_currency @parking_space.cost_per_hour %></h3>
-<h3>Number of hours: <%= select_tag 'number_of_hours', options_for_select((1..23)) %></h3>
 <div id="booking"><%= @parking_space.booking %></div>

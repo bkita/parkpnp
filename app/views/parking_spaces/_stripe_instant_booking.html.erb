@@ -1,6 +1,11 @@
-<%= form_tag charges_path do %>
+<%= form_tag bookings_path do %>
+
+    <%= render 'number_of_hours_dropdown' %>
+
     <%= hidden_field_tag 'cost_per_hour', @parking_space.cost_per_hour %>
-    <%= hidden_field_tag 'description', @parking_space.name %>
+    <%= hidden_field_tag 'parking_space_name', @parking_space.name %>
+    <%= hidden_field_tag 'parking_space_id', @parking_space.id %>
+    <%= hidden_field_tag 'instant_booking', true %>
     <% if flash[:error].present? %>
         <div id="error_explanation">
           <p><%= flash[:error] %></p>
@@ -10,6 +15,5 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="<%= @parking_space.name %>"
-            data-amount="<%= @parking_space.cost_per_hour * 100 %>"
             data-locale="auto"></script>
 <% end %>

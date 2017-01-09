@@ -5,7 +5,7 @@ class ParkingSpaceDecorator < Drape::Decorator
     if model.instant_booking
       h.render 'stripe_instant_booking'
     else
-      'booking'
+      'save credit cart and create booking - not implemented'
     end
   end
 end
