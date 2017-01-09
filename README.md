@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+parkpnp samle application
 
-Things you may want to cover:
+* Ruby version 2.3.0
 
-* Ruby version
+* Ruby version 5.0.1
 
 * System dependencies
 
-* Configuration
+bundle install --without production
 
 * Database creation
 
-* Database initialization
+bundle exec rake db:migrate
+
+bundle exec rake db:seed
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bundle exec rspec
