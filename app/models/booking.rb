@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
+  include PriceFormatter
+
   belongs_to :user
 
   validates :parking_space_id, presence: true
@@ -17,7 +19,7 @@ class Booking < ApplicationRecord
     parking_space_name = options[:parking_space_name]
     cost_per_hour = options[:cost_per_hour]
     number_of_hours = options[:number_of_hours]
-    total_price = self.total_price(cost_per_hour, number_of_hours)
+    total_price = total_price(cost_per_hour, number_of_hours)
 
     customer = StripeService.customer(stripeEmail, stripeToken)
     charge = StripeService.charge(customer_id: customer.id, amount: total_price, description: parking_space_name) if customer
@@ -33,9 +35,5 @@ class Booking < ApplicationRecord
     else
       false
     end
-  end
-
-  def self.total_price(cost_per_hour, number_of_hours)
-    (cost_per_hour.to_i * 100) * number_of_hours.to_i
   end
 end
