@@ -15,5 +15,11 @@ RSpec.describe 'ParkingSpaces', type: :request do
       visit parking_space_path(parking)
       expect(page).to have_selector('#booking', :text => 'save credit cart and create booking - not implemented')
     end
+
+    it 'returns stripe button' do
+      parking = create(:parking_space, instant_booking: 1)
+      visit parking_space_path(parking)
+      expect(page).to have_selector('.stripe')
+    end
   end
 end
