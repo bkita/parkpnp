@@ -19,6 +19,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
@@ -28,6 +29,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'rails-controller-testing'
 end
 
 group :production do

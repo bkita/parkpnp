@@ -12,35 +12,13 @@ RSpec.describe Booking, type: :model do
 
   describe 'booking validation' do
 
-    it 'returns false for empty parking_space_id' do
-      booking.parking_space_id = ''
-      expect(booking.valid?).to be false
-    end
-
-    it 'returns false for empty price_per_hour' do
-      booking.price_per_hour = ''
-      expect(booking.valid?).to be false
-    end
-
-    it 'returns false for empty total_price' do
-      booking.total_price = ''
-      expect(booking.valid?).to be false
-    end
-
-    it 'returns false for empty number_of_hours' do
-      booking.number_of_hours = ''
-      expect(booking.valid?).to be false
-    end
-
-    it 'returns false for empty user_id' do
-      booking.user_id = ''
-      expect(booking.valid?).to be false
-    end
-
-    it 'returns false for empty payment_status' do
-      booking.payment_status = ''
-      expect(booking.valid?).to be false
-    end
+    it { should belong_to(:user) }
+    it { should validate_presence_of(:parking_space_id) }
+    it { should validate_presence_of(:price_per_hour) }
+    it { should validate_presence_of(:total_price) }
+    it { should validate_presence_of(:number_of_hours) }
+    it { should validate_presence_of(:user_id) }
+    it { should validate_presence_of(:payment_status) }
 
     it 'returns true for valid booking object' do
       user = create(:user)

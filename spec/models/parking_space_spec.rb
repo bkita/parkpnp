@@ -6,10 +6,8 @@ RSpec.describe ParkingSpace, type: :model do
 
   describe 'parking space validation' do
 
-    it 'returns false for empty parking space name' do
-      parking_space.name = ''
-      expect(parking_space.valid?).to be false
-    end
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:cost_per_hour) }
 
     it 'returns false for to short parking name space' do
       parking_space.name = 'a'*9
@@ -18,11 +16,6 @@ RSpec.describe ParkingSpace, type: :model do
 
     it 'returns false for to long parking name space' do
       parking_space.name = 'a'*257
-      expect(parking_space.valid?).to be false
-    end
-
-    it 'returns false for empty cost_per_hour' do
-      parking_space.cost_per_hour = ''
       expect(parking_space.valid?).to be false
     end
 
