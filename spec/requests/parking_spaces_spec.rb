@@ -9,11 +9,11 @@ RSpec.describe 'ParkingSpaces', type: :request do
     end
   end
 
-  describe 'GET /parking_spaces/:id' do
-    it 'returns status 200' do
+  describe 'visits /parking_spaces/:id' do
+    it 'returns booking message' do
       parking = create(:parking_space)
-      get parking_space_path(parking)
-      expect(response).to have_http_status(200)
+      visit parking_space_path(parking)
+      expect(page).to have_selector('#booking', :text => 'save credit cart and create booking - not implemented')
     end
   end
 end
